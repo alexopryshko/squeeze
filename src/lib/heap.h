@@ -12,21 +12,18 @@ public:
     heap() {
         heapBuffer = new vector<el>();
     }
-
     heap(vector<el> *heapBuffer) {
         this->heapBuffer = heapBuffer;
         build();
     }
+    ~heap() {
+        delete heapBuffer;
+    }
 
     void build();
-
     void add(el element);
-
     el extractMax();
-
-    bool isEmpty() {
-        return heapBuffer->empty();
-    }
+    bool isEmpty() { return heapBuffer->empty(); }
 
 private:
     void heapify(int i);
